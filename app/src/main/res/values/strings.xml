@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PracticaUD2PMDM</string>
+    <string name="ao">APUESTAS ONLINE</string>
+    <string name="registro">REGISTRO</string>
+    <string name="apuestas">APUESTAS</string>
+    <string name="ajustes">AJUSTES</string>
+    <string name="sorteo">SORTEO</string>
 </resources>
