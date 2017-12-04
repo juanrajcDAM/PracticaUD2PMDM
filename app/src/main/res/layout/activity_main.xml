@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!---Activity principal vertical.-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-
+    <!---Título de la activity-->
     <TextView
         android:id="@+id/tituloAO"
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="30sp" />
 
+    <!---Botón que abre el registro.-->
     <Button
         android:id="@+id/registro"
         android:layout_width="match_parent"
@@ -23,6 +25,7 @@
         android:text="@string/registro"
         android:onClick="abrirRegistro"/>
 
+    <!---Botón que abre las apuestas.-->
     <Button
         android:id="@+id/apuestas"
         android:layout_width="match_parent"
@@ -30,6 +33,7 @@
         android:layout_weight="1"
         android:text="@string/apuestas" />
 
+    <!---Botón que abre los ajustes-->
     <Button
         android:id="@+id/ajustes"
         android:layout_width="match_parent"
@@ -37,6 +41,7 @@
         android:layout_weight="1"
         android:text="@string/ajustes" />
 
+    <!---Botón que abre el sorteo-->
     <Button
         android:id="@+id/sorteo"
         android:layout_width="match_parent"
