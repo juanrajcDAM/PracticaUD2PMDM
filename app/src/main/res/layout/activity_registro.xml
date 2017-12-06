@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---Activity del registro vertical.-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!---Título de la activity-->
+    <TextView
+        android:id="@+id/textViewRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="@string/registro"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <!---Campo de texto para el nombre.-->
+    <EditText
+        android:id="@+id/nombreRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/nombre"
+        android:text=""
+        android:labelFor="@+id/nombreRegistro"/>
+
+    <!---Campo de texto para el email.-->
+    <EditText
+        android:id="@+id/emailRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="@string/email"
+        android:text=""
+        android:labelFor="@+id/emailRegistro"/>
+
+    <!--Campo de texto para la fecha de nacimiento:
+    No permite escribir directamente en él.
+    Es clickable, abre el método "mostrarCalendario"-->
+    <EditText
+        android:id="@+id/fNacRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="@string/fNac"
+        android:text=""
+        android:labelFor="@+id/fNacRegistro"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1"
+        android:onClick="mostrarCalendario"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="?android:attr/buttonBarStyle">
+
+        <!---Botón que valida los datos.-->
+        <Button
+            android:id="@+id/validarRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/validar"
+            style="?android:attr/buttonBarButtonStyle"
+            android:onClick="validar"/>
+
+        <!---Botón que cierra la activity.-->
+        <Button
+            android:id="@+id/volverRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/volver"
+            style="?android:attr/buttonBarButtonStyle"
+            android:onClick="volver"/>
+
+    </LinearLayout>
+</LinearLayout>
