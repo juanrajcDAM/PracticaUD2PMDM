@@ -15,4 +15,6 @@
     <string name="baloncesto">Baloncesto</string>
     <string name="balonmano">Balonmano</string>
     <string name="tenis">Tenis</string>
+    <string name="dApostar">Dinero a apostar</string>
+    <string name="guardar">GUARDAR</string>
 </resources>

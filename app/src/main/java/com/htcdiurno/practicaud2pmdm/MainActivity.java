@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Apuestas.class));
     }
 
-    /*public void abrirAjustes(View view){
+    public void abrirAjustes(View view){
         startActivity(new Intent(this, Ajustes.class));
-    }*/
+    }
 
     /*public void abrirSorteo(View view){
         startActivity(new Intent(this, Sorteo.class));
