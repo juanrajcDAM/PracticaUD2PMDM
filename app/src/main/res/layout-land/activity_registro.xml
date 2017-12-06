@@ -80,7 +80,6 @@
         </LinearLayout>
 
         <LinearLayout
-            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -88,7 +87,6 @@
             <!---Botón que valida los datos.-->
             <Button
                 android:id="@+id/validarRegistro"
-                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -98,7 +96,6 @@
             <!---Botón que cierra la activity.-->
             <Button
                 android:id="@+id/volverRegistro"
-                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
