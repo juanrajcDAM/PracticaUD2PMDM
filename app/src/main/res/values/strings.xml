@@ -10,4 +10,9 @@
     <string name="fNac">Fecha de nacimiento (dd/mm/aaaa)</string>
     <string name="validar">VALIDAR</string>
     <string name="volver">VOLVER</string>
+    <string name="aceptar">ACEPTAR</string>
+    <string name="futbol">Fútbol</string>
+    <string name="baloncesto">Baloncesto</string>
+    <string name="balonmano">Balonmano</string>
+    <string name="tenis">Tenis</string>
 </resources>

@@ -9,7 +9,7 @@
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginStart="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,20 +19,20 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <!---Título de la activity-->
             <TextView
                 android:id="@+id/textViewApuestas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_span="4"
                 android:fontFamily="monospace"
                 android:text="@string/apuestas"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_blue_light"
                 android:textSize="30sp"
-                android:textStyle="bold"
-                android:layout_span="2"/>
+                android:textStyle="bold" />
 
         </TableRow>
 
@@ -53,11 +53,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/futbol" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <!---Imagen de la ATP-->
             <ImageView
@@ -91,11 +86,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/baloncesto" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <!---Imagen de la Liga Asobal-->
             <ImageView
@@ -114,13 +104,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <!---Botón para aceptar la selección-->
             <Button
                 android:id="@+id/aceptaApuestas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
                 android:text="@string/aceptar" />
 
             <!---Botón que cierra la activity-->
@@ -128,6 +119,7 @@
                 android:id="@+id/vuelveApuestas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="2"
                 android:text="@string/volver" />
         </TableRow>
     </TableLayout>
