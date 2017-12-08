@@ -129,7 +129,8 @@
         android:text="@string/volver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/tabHost" />
+        app:layout_constraintTop_toBottomOf="@+id/tabHost"
+        android:onClick="volver"/>
 
     <!---Línea divisoria vertical para la colocación de los botones-->
     <android.support.constraint.Guideline

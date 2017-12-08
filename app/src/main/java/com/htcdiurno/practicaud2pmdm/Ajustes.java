@@ -2,6 +2,7 @@ package com.htcdiurno.practicaud2pmdm;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TabHost;
@@ -38,4 +39,16 @@ public class Ajustes extends AppCompatActivity {
         s.setAdapter(adapter);
 
     }
+
+    /**
+     * Método que finaliza la view.
+     *
+     * @param view
+     */
+    public void volver(View view){
+
+        finish();
+
+    }
+
 }

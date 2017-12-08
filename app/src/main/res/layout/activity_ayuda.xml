@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.htcdiurno.practicaud2pmdm.Ayuda">
+
+    <!---Botón que cierra la activity-->
+    <Button
+        android:id="@+id/volverAyuda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/volver"
+        android:onClick="volver"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!---Texto de ayuda-->
+            <TextView
+                android:id="@+id/textoAyuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/textoayuda" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

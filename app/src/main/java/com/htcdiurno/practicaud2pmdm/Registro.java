@@ -70,10 +70,10 @@ public class Registro extends AppCompatActivity {
         }else{
             //Comprueba si es mayor de edad. Si no lo es, muestra un mensaje...
             if(!calculaEdad(fNacRegistro.getText().toString()))
-                Toast.makeText(getApplicationContext(), "No puedes registrarte, no eres mayod de edad.", Toast.LENGTH_SHORT).show();
-            //Si es mayor de edad, muestra un mensaje.
+                Toast.makeText(getApplicationContext(), "No puedes registrarte, no eres mayor de edad.", Toast.LENGTH_SHORT).show();
+            //Si es mayor de edad, muestra un mensaje de duración larga.
             else
-                Toast.makeText(getApplicationContext(), "Usuario registrado.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Usuario registrado.", Toast.LENGTH_LONG).show();
         }
 
     }

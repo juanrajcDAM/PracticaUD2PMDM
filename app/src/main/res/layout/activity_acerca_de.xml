@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.htcdiurno.practicaud2pmdm.AcercaDe">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.033">
+
+        <!---Título de la activity-->
+        <TextView
+            android:id="@+id/textAcercaDe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="@string/acerca"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp" />
+
+        <!---Nombre del autor-->
+        <TextView
+            android:id="@+id/textAutor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/autor"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <!---Año de desarrollo-->
+        <TextView
+            android:id="@+id/textAnio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/anio"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+        <!---Botón que cierra la activity-->
+        <Button
+            android:id="@+id/volverAcerca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/volver"
+            android:textAlignment="center"
+            android:onClick="volver"/>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

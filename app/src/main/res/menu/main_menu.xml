@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+    Item del menú que lleva a "Acerca de...".
+    Sólo se muestra en el Action Overflow.
+    -->
+    <item android:title="@string/acerca"
+        android:id="@+id/acercaDe"
+        android:orderInCategory="2"
+        app:showAsAction="never"/>
+
+    <!--
+    Item del menú que lleva a "Ayuda".
+    Se muestra, si hay espacio, en la barra superior con un icono "?".
+    -->
+    <item android:id="@+id/ayuda"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/ayuda"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom" />
+
+</menu>
