@@ -14,7 +14,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private boolean registroValidado;
-    private String tipoApuesta;
+    private String tipoApuesta, contendientes, apuesta, resultadoUno, resultadoDos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +95,23 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void abrirAjustes(View view){
-        startActivity(new Intent(this, Ajustes.class));
+
+        //Si no se ha seleccionado previamente un tipo de apuesta...
+        if(tipoApuesta==null)
+            //Muestra un mensaje.
+            Toast.makeText(getApplicationContext(), "Debes seleccionar antes un tipo de apuesta.", Toast.LENGTH_SHORT).show();
+        //Si ya se ha seleccionado...
+        else {
+
+            //inicia la activity enviándole el tipo de apuesta.
+            Intent intent= new Intent (this, Ajustes. class);
+            Bundle bundle = new Bundle();
+            bundle.putString("tipoApuesta",tipoApuesta);
+            intent.putExtras(bundle);
+            startActivityForResult(intent, 3);
+
+        }
+
     }
 
     /**
@@ -151,7 +167,20 @@ public class MainActivity extends AppCompatActivity {
             //Y muestra el tipo de apuesta seleccionada.
             Toast.makeText(getApplicationContext(), "Tipo de apuesta seleccionada: "+tipoApuesta, Toast.LENGTH_LONG).show();
 
+        //Si la activity "Ajustes" devuelve un resultado...
+        }else if(requestCode == 3 && resultCode == RESULT_OK) {
+
+            //Lo guarda en las variables de clase...
+            apuesta=data.getExtras().getString("apuesta");
+            contendientes=data.getExtras().getString("contendientes");
+            resultadoUno=data.getExtras().getString("resultadoUno");
+            resultadoDos=data.getExtras().getString("resultadoDos");
+
+            //Y muestra la apuesta.
+            Toast.makeText(getApplicationContext(), "Combinación: "+contendientes+" ("+resultadoUno+") - ("+resultadoDos+") : Apuesta: "+apuesta, Toast.LENGTH_LONG).show();
+
         }
+
 
     }
 }
