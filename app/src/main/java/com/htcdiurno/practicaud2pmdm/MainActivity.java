@@ -13,6 +13,9 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private boolean registroValidado;
+    private String tipoApuesta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void abrirRegistro(View view){
-        startActivity(new Intent(this, Registro.class));
+
+        Intent intent= new Intent (this, Registro. class);
+        startActivityForResult(intent, 1);
+
     }
 
     /**
@@ -67,7 +73,20 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void abrirApuestas(View view){
-        startActivity(new Intent(this, Apuestas.class));
+
+        //Si no está registrado...
+        if(!registroValidado)
+            //Muestra un mensaje.
+            Toast.makeText(getApplicationContext(), "Error: No puedes apostar si no te has registrado.", Toast.LENGTH_SHORT).show();
+        //Si lo está...
+        else {
+
+            //inicia la activity.
+            Intent intent= new Intent (this, Apuestas. class);
+            startActivityForResult(intent, 2);
+
+        }
+
     }
 
     /**
@@ -106,4 +125,33 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Ayuda.class));
     }
 
+    /**
+     * Método sobreescrito para recibir datos de las activities.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        //Si la activity "Registro" devuelve un resultado...
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+
+            //Lo guarda en la variable de clase.
+            registroValidado=data.getExtras().getBoolean("registroValidado");
+
+        //Si la activity "Apuestas" devuelve un resultado...
+        }else if(requestCode == 2 && resultCode == RESULT_OK) {
+
+            //Lo guarda en la variable de clase...
+            tipoApuesta=data.getExtras().getString("tipoApuesta");
+
+            //Y muestra el tipo de apuesta seleccionada.
+            Toast.makeText(getApplicationContext(), "Tipo de apuesta seleccionada: "+tipoApuesta, Toast.LENGTH_LONG).show();
+
+        }
+
+    }
 }

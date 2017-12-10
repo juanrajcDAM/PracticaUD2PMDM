@@ -1,6 +1,7 @@
 package com.htcdiurno.practicaud2pmdm;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,9 +72,22 @@ public class Registro extends AppCompatActivity {
             //Comprueba si es mayor de edad. Si no lo es, muestra un mensaje...
             if(!calculaEdad(fNacRegistro.getText().toString()))
                 Toast.makeText(getApplicationContext(), "No puedes registrarte, no eres mayor de edad.", Toast.LENGTH_SHORT).show();
-            //Si es mayor de edad, muestra un mensaje de duración larga.
-            else
+            //Si es mayor de edad...
+            else {
+                //Muestra un mensaje de duración larga...
                 Toast.makeText(getApplicationContext(), "Usuario registrado.", Toast.LENGTH_LONG).show();
+
+                //Envía un intent al main para confirmarle el registro...
+                Intent intent= new Intent (this, MainActivity. class);
+                Bundle bundle = new Bundle();
+
+                bundle.putBoolean("registroValidado",true);
+                intent.putExtras(bundle);
+                setResult(RESULT_OK, intent);
+
+                //Y cierra la activity.
+                finish();
+            }
         }
 
     }

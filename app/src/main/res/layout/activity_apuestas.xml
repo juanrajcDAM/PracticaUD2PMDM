@@ -68,7 +68,7 @@
 
             <!---Seleccionable de la ATP-->
             <CheckBox
-                android:id="@+id/checktenis"
+                android:id="@+id/checkTenis"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/tenis" />
@@ -121,7 +121,8 @@
                 android:id="@+id/aceptaApuestas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/aceptar" />
+                android:text="@string/aceptar"
+                android:onClick="aceptar"/>
 
             <!---Botón que cierra la activity-->
             <Button
