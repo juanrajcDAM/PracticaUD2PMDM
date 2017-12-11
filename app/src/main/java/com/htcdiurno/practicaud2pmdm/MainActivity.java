@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         //Si no está registrado...
         if(!registroValidado)
             //Muestra un mensaje.
-            Toast.makeText(getApplicationContext(), "Error: No puedes apostar si no te has registrado.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorApuestas), Toast.LENGTH_SHORT).show();
         //Si lo está...
         else {
 
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         //Si no se ha seleccionado previamente un tipo de apuesta...
         if(tipoApuesta==null)
             //Muestra un mensaje.
-            Toast.makeText(getApplicationContext(), "Debes seleccionar antes un tipo de apuesta.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.avisoAjustes), Toast.LENGTH_SHORT).show();
         //Si ya se ha seleccionado...
         else {
 
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         //startActivity(new Intent(this, Sorteo.class));
 
-        Toast.makeText(getApplicationContext(), "Funcionalidad aún no implementada.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), getString(R.string.noFuncion), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             tipoApuesta=data.getExtras().getString("tipoApuesta");
 
             //Y muestra el tipo de apuesta seleccionada.
-            Toast.makeText(getApplicationContext(), "Tipo de apuesta seleccionada: "+tipoApuesta, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.tipoApuestaSelec)+tipoApuesta, Toast.LENGTH_LONG).show();
 
         //Si la activity "Ajustes" devuelve un resultado...
         }else if(requestCode == 3 && resultCode == RESULT_OK) {
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
             resultadoDos=data.getExtras().getString("resultadoDos");
 
             //Y muestra la apuesta.
-            Toast.makeText(getApplicationContext(), "Combinación: "+contendientes+" ("+resultadoUno+") - ("+resultadoDos+") : Apuesta: "+apuesta, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.toastComb)+contendientes+" ("+resultadoUno+") - ("+resultadoDos+getString(R.string.toastApu)+apuesta, Toast.LENGTH_LONG).show();
 
         }
 

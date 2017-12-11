@@ -40,7 +40,7 @@ public class Apuestas extends AppCompatActivity {
             case "varios":
 
                 //Muestra un mensaje.
-                Toast.makeText(getApplicationContext(), "La versión Lite solo admite un tipo de apuesta. Compra nuestra versión de pago.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.soloUno), Toast.LENGTH_LONG).show();
 
                 break;
 
@@ -48,7 +48,7 @@ public class Apuestas extends AppCompatActivity {
             case "ninguno":
 
                 //Muestra un mensaje.
-                Toast.makeText(getApplicationContext(), "No has seleccionado ninguna apuesta.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.apuNoSelec), Toast.LENGTH_LONG).show();
 
                 break;
 
@@ -56,7 +56,7 @@ public class Apuestas extends AppCompatActivity {
             case "Futbol":case "Tenis":case "Baloncesto":case "Balonmano":
 
                 //Muestra un mensaje...
-                Toast.makeText(getApplicationContext(), "Apuesta guardada.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.apuGuardada), Toast.LENGTH_LONG).show();
 
                 //Envía un intent al main con la opción seleccionada...
                 Intent intent= new Intent (this, MainActivity. class);

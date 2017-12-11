@@ -66,16 +66,16 @@ public class Registro extends AppCompatActivity {
 
         //Si algún campo de texto está vacío, muestra un mensaje...
         if(nombreRegistro.getText().length()<1 || emailRegistro.getText().length()<1 || fNacRegistro.getText().length()<1) {
-            Toast.makeText(getApplicationContext(), "Falta algún campo por rellenar.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.faltaCampo), Toast.LENGTH_SHORT).show();
         //Si no...
         }else{
             //Comprueba si es mayor de edad. Si no lo es, muestra un mensaje...
             if(!calculaEdad(fNacRegistro.getText().toString()))
-                Toast.makeText(getApplicationContext(), "No puedes registrarte, no eres mayor de edad.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.menorEdad), Toast.LENGTH_SHORT).show();
             //Si es mayor de edad...
             else {
                 //Muestra un mensaje de duración larga...
-                Toast.makeText(getApplicationContext(), "Usuario registrado.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.usuReg), Toast.LENGTH_LONG).show();
 
                 //Envía un intent al main para confirmarle el registro...
                 Intent intent= new Intent (this, MainActivity. class);
@@ -117,7 +117,7 @@ public class Registro extends AppCompatActivity {
             //Pasa el String con la fecha a formato Date.
             fechaNac = new SimpleDateFormat("dd / MM / yyyy").parse(fecha);
         } catch (Exception ex) {
-            Toast.makeText(getApplicationContext(), "Error con la fecha.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorFecha), Toast.LENGTH_SHORT).show();
         }
 
         Calendar fechaNacimiento = Calendar.getInstance();

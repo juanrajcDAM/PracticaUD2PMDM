@@ -27,8 +27,8 @@ public class Ajustes extends AppCompatActivity {
         TabHost.TabSpec tab1=tabs.newTabSpec("tab1");
         TabHost.TabSpec tab2=tabs.newTabSpec("tab2");
 
-        tab1.setIndicator("DINERO").setContent(R.id.tab1);
-        tab2.setIndicator("COMBINACIÓN").setContent(R.id.tab2);
+        tab1.setIndicator(getString(R.string.dinero)).setContent(R.id.tab1);
+        tab2.setIndicator(getString(R.string.combinacion)).setContent(R.id.tab2);
 
         tabs.addTab(tab1);
         tabs.addTab(tab2);
@@ -64,20 +64,20 @@ public class Ajustes extends AppCompatActivity {
         //Si en el spinner no hay ningún valor seleccionado...
         if(spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString()==null)
             //Muestra un mensaje.
-            Toast.makeText(getApplicationContext(), "Elige tu apuesta.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.eligeApu), Toast.LENGTH_LONG).show();
         //Si tiene un valor seleccionado y la combinación tiene algún campo vacío...
         else if(res1.getText().length()<1 && res2.getText().length()<1)
             //Muestra un mensaje.
-            Toast.makeText(getApplicationContext(), "Elige tu combinación ganadora.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.eligeComb), Toast.LENGTH_LONG).show();
         //Si el spinner tiene un valor seleccionado, la combinación tiene un valor introducido pero ese valor no es válido...
         else if(!esValido(res1.getText().toString()) || !esValido(res2.getText().toString()))
             //Muestra un mensaje.
-            Toast.makeText(getApplicationContext(), "Error: cada combinación debe contener cifras (tres como máximo).", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.errorAjustes), Toast.LENGTH_LONG).show();
         //Si no se da ninguna de las situaciones anteriores...
         else{
 
             //Muestra un mensaje...
-            Toast.makeText(getApplicationContext(), "Ajustes guardados.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.ajustesGuardados), Toast.LENGTH_LONG).show();
 
             //Envía un intent al main con los datos seleccionados e introducidos...
             Intent intent= new Intent (this, MainActivity. class);
