@@ -1,8 +1,11 @@
 package com.htcdiurno.practicaud2pmdm;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,9 +21,34 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        compruebaDN();
         setContentView(R.layout.activity_main);
+
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        compruebaDN();
+
+    }
+
+    /**
+     * Método que comprueba si el modo noche está activado.
+     */
+    private void compruebaDN(){
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        if(pref.getBoolean("modoNoche", false))
+            AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_NO);
+
+    }
+
 
     /**
      * Método que crea el menú principal en la activity principal.
