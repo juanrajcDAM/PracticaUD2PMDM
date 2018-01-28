@@ -47,5 +47,9 @@
 
     <string name="preferencias">Settings</string>
     <string name="modoNoche">Night mode:</string>
+    <string name="catUsuMail">User and E-Mail</string>
+    <string name="catVisual">Visual Options</string>
+    <string name="usuPref">User</string>
+    <string name="mailPref">E-Mail</string>
 
 </resources>

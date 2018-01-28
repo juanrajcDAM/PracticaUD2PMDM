@@ -1,6 +1,7 @@
 package com.htcdiurno.practicaud2pmdm;
 
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -23,6 +24,9 @@ public class Registro extends AppCompatActivity {
 
     private EditText nombreRegistro, emailRegistro, fNacRegistro;
 
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editorPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +40,7 @@ public class Registro extends AppCompatActivity {
      */
     private void compruebaDN(){
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         if(pref.getBoolean("modoNoche", false))
             AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
         else
@@ -93,6 +97,15 @@ public class Registro extends AppCompatActivity {
             else {
                 //Muestra un mensaje de duración larga...
                 Toast.makeText(getApplicationContext(), getString(R.string.usuReg), Toast.LENGTH_LONG).show();
+
+                //Guarda el usuario y contraseña en preferencias...
+                pref=getApplicationContext().getSharedPreferences("com.htcdiurno.practicaud2pmdm_preferences", MODE_PRIVATE);
+                editorPref=pref.edit();
+
+                editorPref.putString("usuarioPref", nombreRegistro.getText().toString());
+                editorPref.putString("emailPref", emailRegistro.getText().toString());
+
+                editorPref.commit();
 
                 //Envía un intent al main para confirmarle el registro...
                 Intent intent= new Intent (this, MainActivity. class);

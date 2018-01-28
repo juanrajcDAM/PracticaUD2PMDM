@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean registroValidado;
     private String tipoApuesta, contendientes, apuesta, resultadoUno, resultadoDos;
 
+    private SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private void compruebaDN(){
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+
         if(pref.getBoolean("modoNoche", false))
             AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
         else
@@ -105,8 +108,10 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirApuestas(View view){
 
-        //Si no está registrado...
-        if(!registroValidado)
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        //Si no está registrado ni existe un usuario guardado en Preferencias...
+        if(!registroValidado || "".contains(pref.getString("usuarioPref","")) || "".contains(pref.getString("emailPref","")))
             //Muestra un mensaje.
             Toast.makeText(getApplicationContext(), getString(R.string.errorApuestas), Toast.LENGTH_SHORT).show();
         //Si lo está...
