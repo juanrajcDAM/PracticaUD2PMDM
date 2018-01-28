@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.preferencias:
+                abrirPreferencias();
+                return true;
             case R.id.acercaDe:
                 abrirAcercaDe();
                 return true;
@@ -139,6 +142,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirAyuda(){
         startActivity(new Intent(this, Ayuda.class));
+    }
+
+    /**
+     * Método que abre Preferencias...
+     */
+    public void abrirPreferencias(){
+        startActivity(new Intent(this, Settings.class));
     }
 
     /**

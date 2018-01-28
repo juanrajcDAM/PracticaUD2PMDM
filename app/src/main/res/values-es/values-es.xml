@@ -44,4 +44,8 @@
     <!---Cadenas de las pestañas-->
     <string name="dinero">DINERO</string>
     <string name="combinacion">COMBINACIÓN</string>
+
+    <string name="preferencias">Configuración</string>
+    <string name="modoNoche">Modo noche:</string>
+
 </resources>
