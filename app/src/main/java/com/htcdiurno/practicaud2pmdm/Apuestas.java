@@ -13,12 +13,41 @@ import android.widget.Toast;
 public class Apuestas extends AppCompatActivity {
 
     private CheckBox checkFutbol, checkTenis, checkBaloncesto, checkBalonmano;
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editorPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         compruebaDN();
         setContentView(R.layout.activity_apuestas);
+
+        //Enlace a los CheckBox de la interfaz.
+        checkFutbol = findViewById(R.id.checkFutbol);
+        checkTenis = findViewById(R.id.checkTenis);
+        checkBaloncesto = findViewById(R.id.checkBaloncesto);
+        checkBalonmano = findViewById(R.id.checkBalonmano);
+
+        /*
+        Al iniciar la activity, seleccionamos automáticamente el tipo de apuesta
+        guardada en preferencias (si la hay).
+        */
+        switch(pref.getString("prefApuesta","")){
+
+            case "Futbol":
+                checkFutbol.setChecked(true);
+                break;
+            case "Tenis":
+                checkTenis.setChecked(true);
+                break;
+            case "Baloncesto":
+                checkBaloncesto.setChecked(true);
+                break;
+            case "Balonmano":
+                checkBalonmano.setChecked(true);
+
+        }
+
     }
 
     /**
@@ -26,7 +55,8 @@ public class Apuestas extends AppCompatActivity {
      */
     private void compruebaDN(){
 
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+
         if(pref.getBoolean("modoNoche", false))
             AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
         else
@@ -40,12 +70,6 @@ public class Apuestas extends AppCompatActivity {
      * @param view
      */
     public void aceptar(View view){
-
-        //Enlace a los CheckBox de la interfaz.
-        checkFutbol = findViewById(R.id.checkFutbol);
-        checkTenis = findViewById(R.id.checkTenis);
-        checkBaloncesto = findViewById(R.id.checkBaloncesto);
-        checkBalonmano = findViewById(R.id.checkBalonmano);
 
         //Guardamos el resultado del controlador de los CheckBox en una variable.
         String seleccionado=controlCheckBox(checkFutbol, checkTenis, checkBaloncesto, checkBalonmano);
@@ -74,6 +98,14 @@ public class Apuestas extends AppCompatActivity {
 
                 //Muestra un mensaje...
                 Toast.makeText(getApplicationContext(), getString(R.string.apuGuardada), Toast.LENGTH_LONG).show();
+
+                //Guarda el deporte seleccionado en preferencias...
+                pref=getApplicationContext().getSharedPreferences("com.htcdiurno.practicaud2pmdm_preferences", MODE_PRIVATE);
+                editorPref=pref.edit();
+
+                editorPref.putString("prefApuesta", seleccionado);
+
+                editorPref.commit();
 
                 //Envía un intent al main con la opción seleccionada...
                 Intent intent= new Intent (this, MainActivity. class);

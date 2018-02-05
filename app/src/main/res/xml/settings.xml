@@ -22,6 +22,21 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="catApuestas"
+        android:title="@string/catApuestas">
+
+        <ListPreference
+            android:key="prefApuesta"
+            android:title="@string/apuPref"
+            android:entries="@array/listaDeportes"
+            android:entryValues="@array/listaValDeportes"
+            >
+
+        </ListPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:key="catVisual"
         android:title="@string/catVisual">
 

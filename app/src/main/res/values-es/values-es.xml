@@ -49,7 +49,9 @@
     <string name="modoNoche">Modo noche:</string>
     <string name="catUsuMail">Usuario y Correo</string>
     <string name="catVisual">Opciones Visuales</string>
+    <string name="catApuestas">Preferencias de Apuesta</string>
     <string name="usuPref">Usuario</string>
     <string name="mailPref">Correo</string>
+    <string name="apuPref">Deporte Seleccionado</string>
 
 </resources>

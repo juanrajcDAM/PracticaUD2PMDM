@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     /**
      * Método que crea el menú principal en la activity principal.
      *
@@ -108,10 +107,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirApuestas(View view){
 
-        pref = PreferenceManager.getDefaultSharedPreferences(this);
-
         //Si no está registrado ni existe un usuario guardado en Preferencias...
-        if(!registroValidado || "".contains(pref.getString("usuarioPref","")) || "".contains(pref.getString("emailPref","")))
+        if(/*!registroValidado ||*/ "".contains(pref.getString("usuarioPref","")) || "".contains(pref.getString("emailPref","")))
             //Muestra un mensaje.
             Toast.makeText(getApplicationContext(), getString(R.string.errorApuestas), Toast.LENGTH_SHORT).show();
         //Si lo está...
@@ -132,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirAjustes(View view){
 
-        //Si no se ha seleccionado previamente un tipo de apuesta...
-        if(tipoApuesta==null)
+        //Si no se ha seleccionado previamente un tipo de apuesta o no se ha guardado un tipo de apuesta en preferencias...
+        if(/*tipoApuesta==null ||*/ "".contains(pref.getString("prefApuesta","")))
             //Muestra un mensaje.
             Toast.makeText(getApplicationContext(), getString(R.string.avisoAjustes), Toast.LENGTH_SHORT).show();
         //Si ya se ha seleccionado...
@@ -142,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             //inicia la activity enviándole el tipo de apuesta.
             Intent intent= new Intent (this, Ajustes. class);
             Bundle bundle = new Bundle();
-            bundle.putString("tipoApuesta",tipoApuesta);
+            bundle.putString("tipoApuesta",/*tipoApuesta*/pref.getString("prefApuesta", ""));
             intent.putExtras(bundle);
             startActivityForResult(intent, 3);
 
