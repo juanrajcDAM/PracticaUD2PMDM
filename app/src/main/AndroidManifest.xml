@@ -20,8 +20,9 @@
         <activity android:name=".Apuestas" />
         <activity android:name=".Ajustes" />
         <activity android:name=".AcercaDe" />
-        <activity android:name=".Ayuda"/>
-        <activity android:name=".Settings"/>
+        <activity android:name=".Ayuda" />
+        <activity android:name=".Settings" />
+        <activity android:name=".Resultado"></activity>
     </application>
 
 </manifest>

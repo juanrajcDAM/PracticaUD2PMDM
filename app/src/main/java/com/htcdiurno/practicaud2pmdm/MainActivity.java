@@ -152,11 +152,11 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view
      */
-    public void abrirSorteo(View view){
+    public void abrirResultados(View view){
 
-        //startActivity(new Intent(this, Sorteo.class));
+        startActivity(new Intent(this, Resultado.class));
 
-        Toast.makeText(getApplicationContext(), getString(R.string.noFuncion), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), getString(R.string.noFuncion), Toast.LENGTH_SHORT).show();
 
     }
 
