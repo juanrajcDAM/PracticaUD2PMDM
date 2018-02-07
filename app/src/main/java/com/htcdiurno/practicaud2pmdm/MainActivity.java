@@ -1,8 +1,11 @@
 package com.htcdiurno.practicaud2pmdm;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,10 +19,37 @@ public class MainActivity extends AppCompatActivity {
     private boolean registroValidado;
     private String tipoApuesta, contendientes, apuesta, resultadoUno, resultadoDos;
 
+    private SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        compruebaDN();
         setContentView(R.layout.activity_main);
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        compruebaDN();
+
+    }
+
+    /**
+     * Método que comprueba si el modo noche está activado.
+     */
+    private void compruebaDN(){
+
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        if(pref.getBoolean("modoNoche", false))
+            AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_NO);
+
     }
 
     /**
@@ -43,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
+            case R.id.preferencias:
+                abrirPreferencias();
+                return true;
             case R.id.acercaDe:
                 abrirAcercaDe();
                 return true;
@@ -74,8 +107,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirApuestas(View view){
 
-        //Si no está registrado...
-        if(!registroValidado)
+        //Si no está registrado ni existe un usuario guardado en Preferencias...
+        if(/*!registroValidado ||*/ "".contains(pref.getString("usuarioPref","")) || "".contains(pref.getString("emailPref","")))
             //Muestra un mensaje.
             Toast.makeText(getApplicationContext(), getString(R.string.errorApuestas), Toast.LENGTH_SHORT).show();
         //Si lo está...
@@ -96,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirAjustes(View view){
 
-        //Si no se ha seleccionado previamente un tipo de apuesta...
-        if(tipoApuesta==null)
+        //Si no se ha seleccionado previamente un tipo de apuesta o no se ha guardado un tipo de apuesta en preferencias...
+        if(/*tipoApuesta==null ||*/ "".contains(pref.getString("prefApuesta","")))
             //Muestra un mensaje.
             Toast.makeText(getApplicationContext(), getString(R.string.avisoAjustes), Toast.LENGTH_SHORT).show();
         //Si ya se ha seleccionado...
@@ -106,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
             //inicia la activity enviándole el tipo de apuesta.
             Intent intent= new Intent (this, Ajustes. class);
             Bundle bundle = new Bundle();
-            bundle.putString("tipoApuesta",tipoApuesta);
+            bundle.putString("tipoApuesta",/*tipoApuesta*/pref.getString("prefApuesta", ""));
             intent.putExtras(bundle);
             startActivityForResult(intent, 3);
 
@@ -119,11 +152,11 @@ public class MainActivity extends AppCompatActivity {
      *
      * @param view
      */
-    public void abrirSorteo(View view){
+    public void abrirResultados(View view){
 
-        //startActivity(new Intent(this, Sorteo.class));
+        startActivity(new Intent(this, Resultado.class));
 
-        Toast.makeText(getApplicationContext(), getString(R.string.noFuncion), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), getString(R.string.noFuncion), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -139,6 +172,13 @@ public class MainActivity extends AppCompatActivity {
      */
     public void abrirAyuda(){
         startActivity(new Intent(this, Ayuda.class));
+    }
+
+    /**
+     * Método que abre Preferencias...
+     */
+    public void abrirPreferencias(){
+        startActivity(new Intent(this, Settings.class));
     }
 
     /**

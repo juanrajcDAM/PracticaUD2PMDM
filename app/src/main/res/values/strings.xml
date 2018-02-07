@@ -16,6 +16,12 @@
     <string name="baloncesto">Basketball</string>
     <string name="balonmano">Handball</string>
     <string name="tenis">Tennis</string>
+    <string name="resultados">SCORES</string>
+    <string name="id">ID</string>
+    <string name="con1">Contender 1</string>
+    <string name="con2">Contender 2</string>
+    <string name="res1">Score 1</string>
+    <string name="res2">Score 2</string>
     <string name="dApostar">Money to bet</string>
     <string name="guardar">SAVE</string>
     <string name="acerca">About...</string>
@@ -44,5 +50,15 @@
     <!---Cadenas de las pestañas-->
     <string name="dinero">MONEY</string>
     <string name="combinacion">COMBINATION</string>
+
+    <!---Cadenas de las preferencias-->
+    <string name="preferencias">Settings</string>
+    <string name="modoNoche">Night mode:</string>
+    <string name="catUsuMail">User and E-Mail</string>
+    <string name="catVisual">Visual Options</string>
+    <string name="catApuestas">Bet Preferences</string>
+    <string name="usuPref">User</string>
+    <string name="mailPref">E-Mail</string>
+    <string name="apuPref">Selected Sport</string>
 
 </resources>

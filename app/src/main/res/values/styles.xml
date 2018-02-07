@@ -10,4 +10,6 @@
         <item name="colorButtonNormal">@color/colorBotones</item>
     </style>
 
+    <style name="TemaDN" parent="Theme.AppCompat.DayNight"/>
+
 </resources>

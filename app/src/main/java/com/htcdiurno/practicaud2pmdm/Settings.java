@@ -1,19 +1,24 @@
 package com.htcdiurno.practicaud2pmdm;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatDelegate;
-import android.view.View;
 
-public class Ayuda extends AppCompatActivity {
+/**
+ * Created by juanrajc on 28/01/2018.
+ */
+
+public class Settings extends PreferenceActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         compruebaDN();
-        setContentView(R.layout.activity_ayuda);
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new SettingsFragment())
+                .commit();
     }
 
     /**
@@ -26,17 +31,6 @@ public class Ayuda extends AppCompatActivity {
             AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
         else
             AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_NO);
-
-    }
-
-    /**
-     * Método que finaliza la view.
-     *
-     * @param view
-     */
-    public void volver(View view){
-
-        finish();
 
     }
 

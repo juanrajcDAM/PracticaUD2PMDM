@@ -1,9 +1,13 @@
 package com.htcdiurno.practicaud2pmdm;
 
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -20,10 +24,27 @@ public class Registro extends AppCompatActivity {
 
     private EditText nombreRegistro, emailRegistro, fNacRegistro;
 
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editorPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        compruebaDN();
         setContentView(R.layout.activity_registro);
+
+    }
+
+    /**
+     * Método que comprueba si el modo noche está activado.
+     */
+    private void compruebaDN(){
+
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        if(pref.getBoolean("modoNoche", false))
+            AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_YES);
+        else
+            AppCompatDelegate.setDefaultNightMode (AppCompatDelegate.MODE_NIGHT_NO);
 
     }
 
@@ -76,6 +97,15 @@ public class Registro extends AppCompatActivity {
             else {
                 //Muestra un mensaje de duración larga...
                 Toast.makeText(getApplicationContext(), getString(R.string.usuReg), Toast.LENGTH_LONG).show();
+
+                //Guarda el usuario y contraseña en preferencias...
+                pref=getApplicationContext().getSharedPreferences("com.htcdiurno.practicaud2pmdm_preferences", MODE_PRIVATE);
+                editorPref=pref.edit();
+
+                editorPref.putString("usuarioPref", nombreRegistro.getText().toString());
+                editorPref.putString("emailPref", emailRegistro.getText().toString());
+
+                editorPref.commit();
 
                 //Envía un intent al main para confirmarle el registro...
                 Intent intent= new Intent (this, MainActivity. class);

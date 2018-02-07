@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:key="catUsuario"
+        android:title="@string/catUsuMail">
+
+
+        <EditTextPreference
+            android:key="usuarioPref"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/usuPref" />
+
+        <EditTextPreference
+            android:key="emailPref"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:inputType="textEmailAddress"
+            android:title="@string/mailPref" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="catApuestas"
+        android:title="@string/catApuestas">
+
+        <ListPreference
+            android:key="prefApuesta"
+            android:title="@string/apuPref"
+            android:entries="@array/listaDeportes"
+            android:entryValues="@array/listaValDeportes"
+            >
+
+        </ListPreference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="catVisual"
+        android:title="@string/catVisual">
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="modoNoche"
+            android:title="@string/modoNoche" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

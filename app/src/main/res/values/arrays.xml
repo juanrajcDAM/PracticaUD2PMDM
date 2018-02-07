@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="listaDeportes">
+        <item>@string/futbol</item>
+        <item>@string/tenis</item>
+        <item>@string/baloncesto</item>
+        <item>@string/balonmano</item>
+    </string-array>
+    <string-array name="listaValDeportes">
+        <item>Futbol</item>
+        <item>Tenis</item>
+        <item>Baloncesto</item>
+        <item>Balonmano</item>
+    </string-array>
+
+</resources>

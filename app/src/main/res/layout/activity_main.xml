@@ -43,12 +43,12 @@
         android:text="@string/ajustes"
         android:onClick="abrirAjustes"/>
 
-    <!---Botón que abre el sorteo-->
+    <!---Botón que abre los resultados-->
     <Button
-        android:id="@+id/sorteo"
+        android:id="@+id/resultados"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/sorteo"
-        android:onClick="abrirSorteo"/>
+        android:text="@string/resultados"
+        android:onClick="abrirResultados"/>
 </LinearLayout>

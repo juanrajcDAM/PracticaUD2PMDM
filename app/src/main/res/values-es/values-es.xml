@@ -16,6 +16,12 @@
     <string name="baloncesto">Baloncesto</string>
     <string name="balonmano">Balonmano</string>
     <string name="tenis">Tenis</string>
+    <string name="resultados">RESULTADOS</string>
+    <string name="id">ID</string>
+    <string name="con1">Contendiente 1</string>
+    <string name="con2">Contendiente 2</string>
+    <string name="res1">Resultado 1</string>
+    <string name="res2">Resultado 2</string>
     <string name="dApostar">Dinero a apostar</string>
     <string name="guardar">GUARDAR</string>
     <string name="acerca">Acerca de...</string>
@@ -44,4 +50,15 @@
     <!---Cadenas de las pestañas-->
     <string name="dinero">DINERO</string>
     <string name="combinacion">COMBINACIÓN</string>
+
+    <!---Cadenas de las preferencias-->
+    <string name="preferencias">Configuración</string>
+    <string name="modoNoche">Modo noche:</string>
+    <string name="catUsuMail">Usuario y Correo</string>
+    <string name="catVisual">Opciones Visuales</string>
+    <string name="catApuestas">Preferencias de Apuesta</string>
+    <string name="usuPref">Usuario</string>
+    <string name="mailPref">Correo</string>
+    <string name="apuPref">Deporte Seleccionado</string>
+
 </resources>
